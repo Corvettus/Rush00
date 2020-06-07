@@ -23,12 +23,6 @@ $passwd = hash("whirlpool", $_POST["passwd"]);
 
 $query = "INSERT INTO `users` (`login`, `passwd`) VALUES ('{$login}', '{$passwd}');";
 
-echo "<br/>";
 $sql = mysqli_query($connection, $query);
-if ($sql)
-	echo "<span>New User Created</span>";
-else
-	echo "<span>" . mysqli_error($connection) . "</span>";
-echo "<br/>";
 
 header("Location: index.html");

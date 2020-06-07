@@ -19,9 +19,8 @@ while ($row = mysqli_fetch_array($users))
 
         $query = "UPDATE `users` SET `passwd` = '{$passwd}' WHERE `login` = '{$login}';";
 
-        $users = mysqli_query($connection, $query);
+        $sql = mysqli_query($connection, $query);
 
-        echo "OK" . PHP_EOL;
         header("Location: index.html");
         return;
     }

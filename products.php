@@ -18,3 +18,15 @@ function products() {
 	}
 	return $products;
 }
+
+function product($id) {
+	foreach (products() as $key => $product)
+		if ($id == $key)
+			return $product;
+	return NULL;
+}
+
+function productPrice($id) {
+	$product = product(id);
+	return $product['price'];
+}
