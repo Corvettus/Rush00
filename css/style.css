@@ -1,0 +1,348 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+.header-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+  padding: 15px 0;
+}
+
+.user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user-account {
+  position: relative;
+  display: block;
+  height: 22px;
+  margin-right: 32px;
+}
+
+.user-account__openbtn {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.user-account__openbtn svg {
+  height: 100%;
+  fill: #e5e5e5;
+}
+
+.user-account__openbtn svg:hover {
+  fill: #fca311;
+}
+
+.user-account__form {
+  position: absolute;
+  padding: 25px 20px;
+  top: 165%;
+  right: 0;
+}
+
+.user-basket {
+  display: block;
+  height: 22px;
+}
+
+.user-basket__link svg {
+  height: 100%;
+  fill: #e5e5e5;
+}
+
+.user-basket__link svg:hover {
+  fill: #fca311;
+}
+
+.shop .shop-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 42px;
+  padding-top: 120px;
+  padding-bottom: 50px;
+}
+
+.shop .shop-nav__item {
+  padding: 15px 30px;
+  border-right: 2px solid #e5e5e5;
+  color: #999999;
+  cursor: pointer;
+}
+
+.shop .shop-nav__item:last-child {
+  border-right: none;
+}
+
+.shop .shop-nav__item:hover {
+  color: black;
+}
+
+.shop .shop-main__header {
+  padding: 10px 0;
+  text-transform: uppercase;
+  font-size: 16px;
+  border-bottom: 2px solid #e5e5e5;
+  color: #999999;
+}
+
+.shop .shop-main__showcase {
+  height: 70vh;
+  overflow: scroll;
+  padding: 30px 10px;
+}
+
+.shop .shop-main__showcase::-webkit-scrollbar {
+  width: 0;
+}
+
+.showcase {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.showcase__item {
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  padding: 10px;
+}
+
+.card {
+  height: 300px;
+  padding: 15px 15px;
+  border: 2px solid #e5e5e5;
+}
+
+.card-pic {
+  height: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.card-pic img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.card-info {
+  height: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card-info__title {
+  padding: .2rem 0;
+}
+
+.card-info__price {
+  padding: .4rem 0;
+  color: #666666;
+}
+
+.card__btn {
+  height: 15%;
+  width: 100%;
+  border: none;
+  background-color: #fca311;
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
+  outline: none;
+  cursor: pointer;
+}
+
+.card__btn:hover {
+  background-color: #fdb643;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  padding: 15px 0;
+  background-color: black;
+}
+
+.login-form {
+  display: none;
+  background-color: #f7f7f7;
+  border: 2px solid #e5e5e5;
+  color: black;
+}
+
+.login-form__title {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.login-form__input {
+  display: block;
+  margin-bottom: 15px;
+  border: 0.5 solid #e5e5e5;
+  padding: 5px 2px;
+}
+
+.login-form__btn {
+  width: 100%;
+  padding: 10px 5px;
+  margin-top: 10px;
+  font-size: 14px;
+  background-color: #fca311;
+  border: none;
+  color: white;
+}
+
+.login-form__create-link {
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
+  font-size: 12px;
+  text-align: center;
+  color: #999999;
+  cursor: pointer;
+}
+
+.manage-form {
+  display: none;
+  background-color: #f7f7f7;
+  border: 2px solid #e5e5e5;
+  color: black;
+  min-width: 200px;
+}
+
+.manage-form__title {
+  margin: 10px 5px;
+  font-size: 16px;
+}
+
+.manage-form__btn {
+  width: 100%;
+  padding: 10px 5px;
+  margin-top: 10px;
+  font-size: 14px;
+  background-color: #fca311;
+  border: none;
+  color: white;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.create, .change {
+  position: absolute;
+  z-index: 2;
+  top: 25%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 40vw;
+  padding: 60px 40px;
+  background-color: #f7f7f7;
+}
+
+.create__title, .change__title {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.create-form label, .change-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.create-form input, .change-form input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.create-form input[type=submit], .change-form input[type=submit] {
+  width: 10vw;
+  float: right;
+  margin-top: 20px;
+  margin-bottom: 0;
+  padding: 10px 15px;
+  border: none;
+  color: white;
+  background-color: #fca311;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+}
+
+.container {
+  width: 80%;
+  max-width: 1120px;
+  margin: auto;
+}
+
+body {
+  background-color: white;
+  font-family: Helvetica, sans-serif;
+  color: black;
+  height: 100vh;
+}

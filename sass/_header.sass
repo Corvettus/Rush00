@@ -1,0 +1,59 @@
+@import "colors"
+
+.header
+  position: fixed
+  top: 0
+  width: 100%
+  background-color: $rich-black
+  color: $white
+
+  &-main
+    display: flex
+    justify-content: space-between
+    align-items: center
+    height: 50px
+    padding: 15px 0
+
+    &__logo
+
+.user
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+  &-account
+    position: relative
+    display: block
+    height: 22px
+    margin-right: 32px
+
+    &__openbtn
+      width: 100%
+      height: 100%
+      cursor: pointer
+
+      svg
+        height: 100%
+        fill: $platinum
+
+        &:hover
+          fill: $orange
+
+    &__form
+      position: absolute
+      padding: 25px 20px
+      top: 165%
+      right: 0
+
+  &-basket
+    display: block
+    height: 22px
+    &__link
+      svg
+        height: 100%
+        fill: $platinum
+
+        &:hover
+          fill: $orange
+
+
