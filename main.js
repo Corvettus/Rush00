@@ -17,3 +17,7 @@ window.onclick = () => {
   if (event.target == document.getElementById('modal'))
     document.getElementById('modal').style.display = 'none';
 };
+
+document.querySelectorAll('#buyBtn').forEach(function (btn) {
+  btn.addEventListener('click', function () {});
+});

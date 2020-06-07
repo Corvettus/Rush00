@@ -16,6 +16,6 @@
 		Hello <b><?=@$USER_NAME?></b>
 	</p>
 
-	<button type="submit" class="manage-form__btn" id="openModal">Change password</button>
+	<button type="button" class="manage-form__btn" id="openModal">Change password</button>
 	<button type="submit" class="manage-form__btn" name="state" value="logout">Logout</button>
 </form>

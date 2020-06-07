@@ -50,10 +50,26 @@
       </nav>
       <div class="shop-main">
         <h3 class="shop-main__header">
-          <?=$_SESSION["logged_user"]?>
+			Categorie
         </h3>
         <div class="shop-main__showcase showcase">
-          <div class="showcase__item">
+
+		<?php
+
+			include("products.php");
+
+			$content = products();
+
+			foreach ($content as $item) {
+				echo "<div class=\"showcase__item\">" . "<div class=\"card\">" . "<div class=\"card-pic\">" . "<img src=\"" . $item["img"] . "\">" . "</div>" .
+						"<div class=\"card-info\">" . "<span class=\"card-info__title\">" . $item["name"] . "</span>" .
+						"<span class=\"card-info__price\">" . $item["price"] . "</span>" . "</div>" .
+						"<button type=\"submit\" class=\"card__btn\" product-id=" . $item["id"] . " id=\"buyBtn\">Buy</button>" . "</div>" . "</div>";
+			}
+
+		?>
+
+          <!-- <div class="showcase__item">
             <div class="card">
               <div class="card-pic">
                 <img src="./img/42.png" alt="">
@@ -64,7 +80,7 @@
               </div>
               <button type="submit" class="card__btn">Buy</button>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
