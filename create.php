@@ -1,32 +1,34 @@
 <?php
 
-	function user_exist($users, $username) {
-		foreach ($users as $user) {
-			if ($user["login"] == $username){
-				return true;
-			}
-		}
-		return false;
-	}
+include "connectDB.php";
 
+if (@(!$_POST || !$_POST["login"] || !$_POST["passwd"] || $_POST["submit"] !== "OK")) {
+    echo "ERROR" . PHP_EOL;
+    return;
+}
 
-	if (@(bool)$_POST["login"] && @(bool)$_POST["passwd"] && @$_POST["submit"] === "OK") {
-		$user["login"] = $_POST["login"];
-		$user["passwd"] = hash("sha512", $_POST["passwd"]);
+$connection = connectDB();
+$query = "SELECT * FROM `users`;";
+$users = mysqli_query($connection, $query);
 
-		if (!file_exists("./private")) {
-			mkdir("./private");
-		};
+$login = $_POST["login"];
 
-		if (file_exists("./private/passwd")) {
-			$users = (array)unserialize(file_get_contents("./private/passwd"));
-			if (user_exist($users, $user["login"])) {
-				return ;
-			}
-		}
-		$users[] = $user;
-		$users = serialize($users);
-		file_put_contents("./private/passwd", $users);
-	}
-	header("Location: index.php");
-?>
+while ($row = mysqli_fetch_array($users))
+    if ($row["login"] === $login) {
+        echo "ERROR" . PHP_EOL;
+        return;
+    }
+
+$passwd = hash("whirlpool", $_POST["passwd"]);
+
+$query = "INSERT INTO `users` (`login`, `passwd`) VALUES ('{$login}', '{$passwd}');";
+
+echo "<br/>";
+$sql = mysqli_query($connection, $query);
+if ($sql)
+	echo "<span>New User Created</span>";
+else
+	echo "<span>" . mysqli_error($connection) . "</span>";
+echo "<br/>";
+
+header("Location: index.html");

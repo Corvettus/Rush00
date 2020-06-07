@@ -1,22 +1,15 @@
 <?php
 
-	$PASSWD_FILE = "../private/passwd";
-	$PASSWD_HASH = "sha512";
+include "connectDB.php";
 
-	function auth($login, $passwd) {
-		global $PASSWD_FILE;
-		global $PASSWD_HASH;
-
-		if (!$login || !$passwd || !file_exists($PASSWD_FILE))
-			return false;
-
-		$users = unserialize(@file_get_contents($PASSWD_FILE));
-		foreach ($users as $user) {
-			if ($user["login"] === $login && $user["passwd"] === hash($PASSWD_HASH, $passwd)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-?>
+function auth($login, $passwd) {
+	if (!$login || !$passwd)
+    	return false;
+    $connection = connectDB();
+    $query = "SELECT * FROM `users`;";
+    $users = mysqli_query($connection, $query);
+    while ($row = mysqli_fetch_array($users))
+    	if ($row["login"] === $login && $row["passwd"] === hash("whirlpool", $passwd))
+    		return true;
+    return false;
+}
