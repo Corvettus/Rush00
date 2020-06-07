@@ -1,24 +1,27 @@
 <?php
 
-	if (@(bool)$_POST["login"] && @(bool)$_POST["oldpw"] && @(bool)$_POST["newpw"] && @$_POST["submit"] === "OK") {
-		$user["login"] = $_POST["login"];
-		$user["passwd"] = hash("sha512", $_POST["oldpw"]);
-		$user_newpw = hash("sha512", $_POST["newpw"]);
+include "connectDB.php";
 
-		if (!file_exists("../private/passwd")) {
-			echo "ERROR\n";
-			return ;
-		};
+if (@(!$_POST["login"] || !$_POST["oldpw"] || !$_POST["newpw"] || $_POST["submit"] !== "OK")) {
+    echo "ERROR" . PHP_EOL;
+    return;
+}
 
-		$users = unserialize(file_get_contents("../private/passwd"));
-		for ($i = 0; @$users[$i]; $i++) {
-			if ($users[$i]["login"] === $user["login"] && $users[$i]["passwd"] === $user["passwd"]) {
-				$users[$i]["passwd"] = $user_newpw;
-				file_put_contents("../private/passwd", serialize($users));
-				echo "OK\n";
-				header("Location: index.php");
-			}
-		}
-	}
-	echo "ERROR\n";
-?>
+$connection = connectDB();
+$query = "SELECT * FROM `users`;";
+$users = mysqli_query($connection, $query);
+
+while ($row = mysqli_fetch_array($users))
+    if ($row["login"] === $_POST["login"] && $row["passwd"] === hash("whirlpool", $_POST["oldpw"])) {
+
+        $passwd = hash("whirlpool", $_POST['newpw']);
+        $login = $row["login"];
+
+        $query = "UPDATE `users` SET `passwd` = '{$passwd}' WHERE `login` = '{$login}';";
+
+        $sql = mysqli_query($connection, $query);
+
+        header("Location: index.html");
+        return;
+    }
+echo "ERROR" . PHP_EOL;
